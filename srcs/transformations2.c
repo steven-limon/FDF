@@ -6,7 +6,7 @@
 /*   By: slimon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 04:49:50 by slimon            #+#    #+#             */
-/*   Updated: 2019/09/23 06:06:00 by slimon           ###   ########.fr       */
+/*   Updated: 2019/09/23 18:45:48 by slimon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static void	ortho_helper2(t_fdf *fdf, t_frustum_params *f)
 {
-	t_wireframe model;
+	t_wireframe *model;
 
 	model = fdf->model;
 	mult_pos_and_matrix(&(f->min_world), &(f->min_camera), model->view_mat);
@@ -56,7 +56,6 @@ static void	ortho_helper(t_fdf *fdf, t_frustum_params *f, int i)
 void		set_ortho_mat(t_fdf *fdf)
 {
 	t_frustum_params	f;
-	t_vec3f				*vert_table;
 	int					num_verts;
 	int					i;
 
